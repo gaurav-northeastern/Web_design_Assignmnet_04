@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Feedback</title>
+    <style>
+        label {
+            float: left;
+            width: 150px;
+        }
+
+        #container {
+            width: 700px;
+            margin: auto;
+            background-color: beige;
+        }
+
+        main {
+            padding: 50px;
+        }
+
+        .none {
+            display: none;
+            color: red;
+        }
+
+        #dataTable {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <main>
+            <h2>Feedback</h2>
+            <h3>Love something? Hate something? Let us know!</h3>
+            Note: Fields marked with an asterisk (*) are mandatory
+            <br><br>
+            <form method="post" novalidate onsubmit="handleSubmit(event)" action="#">
+                <label>Title*:</label>
+                <input type="radio" name="title" id="miss" value="miss" required="required" />Miss
+                <input type="radio" name="title" id="mr" value="mr" required="required" />Mr.
+                <input type="radio" name="title" id="mrs" value="mrs" required="required" />Mrs.
+                <p id="title_error" class="none">Please select a title.</p>
+                <br><br>
+
+                <label for="firstName">First Name*:</label>
+                <input type="text" name="firstName" id="firstName" placeholder="First Name"
+                    onkeyup="handleChange(this.value,'first_name')" required minlength="3" maxlength="10" />
+                <p id="first_name_error" class="none">Enter a valid first name.</p>
+                <br><br>
+
+                <label for="lastName">Last Name*:</label>
+                <input type="text" name="lastName" id="lastName" placeholder="Last Name"
+                    onkeyup="handleChange(this.value,'last_name')" required minlength="3" maxlength="10" />
+                <p id="last_name_error" class="none">Enter a valid last name.</p>
+                <br><br>
+
+                <label for="emailId">Email Id*:</label>
+                <input type="text" name="emailId" id="emailId" placeholder="yourname@northeastern.edu"
+                    onkeyup="handleChange(this.value,'email_address')" required minlength="3" maxlength="100" />
+                <p id="email_address_error" class="none">Use a valid NEU email ID.</p>
+                <br><br>
+
+                <label for="phoneNumber">Phone Number*:</label>
+                <input type="text" name="phoneNumber" id="phoneNumber" inputmode="decimal" placeholder="xxx-xxx-xxxx"
+                    onkeyup="handleChange(this.value, 'phone_number')" required minlength="12" maxlength="12" />
+                <p id="phone_number_error" class="none">Enter a valid phone number (xxx-xxx-xxxx).</p>
+                <br><br>
+
+                <label for="zipcode">ZipCode*:</label>
+                <input type="text" name="zipcode" id="zipcode" inputmode="decimal" placeholder="xxxxx"
+                    onkeyup="handleChange(this.value,'zip_code')" required minlength="5" maxlength="5" />
+                <p id="zip_code_error" class="none">Enter a valid zip code.</p>
+                <br><br>
+
+                <label for="address">Address*:</label>
+                <input type="text" name="address" id="address" placeholder="Address"
+                    onkeyup="handleChange(this.value,'address')" required />
+                <p id="address_error" class="none">Address is required.</p>
+                <br><br>
+
+                <label for="address2">Address 2:</label>
+                <input type="text" name="address2" id="address2" placeholder="Address 2" />
+                <br><br>
+
+                <label for="comments">Comments*:</label>
+                <textarea name="comments" id="comments" placeholder="Your comments" rows="5" cols="25"
+                    required></textarea>
+                <br><br>
+
+                <label for="selects">Drinks*:</label>
+                <select id="selects" onchange="isdynamic(this.value)" required>
+                    <option value="">Please select</option>
+                    <option value="1">Tea</option>
+                    <option value="2">Coffee</option>
+                    <option value="3">Milk</option>
+                    <option value="4">Cold drink</option>
+                </select>
+                <br><br>
+                <label class="d-none">
+                    <input type="checkbox" name="selects-checkbox" id="selects-checkbox" onchange="isCompulsary()">
+                    <span class="isdynamic_val"></span>
+                </label>
+                <br><br>
+                <input type="text" name="isdynamic_text_field" id="isdynamic_text_field" style="display: none;">
+                <input type="Submit" disabled id="submit-btn">
+                <input type="Reset">
+                <br><br>
+            </form>
+        </main>
+    </div>
+
+    <table id="dataTable" border="1">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Zip Code</th>
+                <th>Address</th>
+                <th>Address 2</th>
+                <th>Comments</th>
+                <th>Drink</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data rows will be inserted here -->
+        </tbody>
+    </table>
+
+    <script src="assets/script.js"></script>
+</body>
+
+</html>
